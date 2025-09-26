@@ -1,24 +1,61 @@
-## Creat Project
-```bash
-npm create vite@latest frontend 
-cd frontend 
+## React Full-Stack Application
 
-npm install
+A complete full-stack application with React frontend and Express backend.
 
-npm run dev
-
-mkdir backend
-cd backend
-npm init -y
-npm install express cors
+### Project Structure
+```
+react-main/
+├── frontend/          # React + Vite frontend
+├── backend/           # Express.js backend
+├── package.json       # Root workspace configuration
+└── README.md
 ```
 
-## Start Backend
-```bash
-cd backend; npm start
-``` 
+### Quick Start
 
-## Start Frontend
+#### Install All Dependencies (Recommended)
 ```bash
-cd frontend; npm run dev
-``` 
+npm install
+```
+
+#### Run Both Frontend and Backend
+```bash
+npm run dev
+```
+
+### Individual Commands
+
+#### Backend Only
+```bash
+cd backend
+npm install
+npm run dev      # Development with nodemon
+npm start        # Production
+```
+
+#### Frontend Only
+```bash
+cd frontend
+npm install
+npm run dev      # Development server
+npm run build    # Production build
+```
+
+### Environment Variables
+- Backend: Copy `.env.example` to `.env` and configure
+- Frontend: Copy `.env.example` to `.env` and configure API URL
+
+### Available Scripts
+- `npm run dev` - Run both frontend and backend in development
+- `npm run dev:frontend` - Run only frontend
+- `npm run dev:backend` - Run only backend  
+- `npm run build:frontend` - Build frontend for production
+- `npm install` - Install all dependencies for both projects
+
+### API Endpoints
+- `GET /api/hello` - Test endpoint
+
+### Tech Stack
+- **Frontend**: React 19, Vite, ESLint
+- **Backend**: Express.js, CORS, dotenv
+- **Development**: Nodemon, Concurrently 

@@ -7,9 +7,11 @@ function App() {
   const [msg, setMsg] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/hello")
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${apiUrl}/api/hello`)
       .then(res => res.json())
-      .then(data => setMsg(data.message));
+      .then(data => setMsg(data.message))
+      .catch(err => console.error("API Error:", err));
   }, []);
 
 
