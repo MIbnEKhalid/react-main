@@ -1,61 +1,41 @@
-## React Full-Stack Application
+# Full-Stack React + Node.js Project for Vercel
 
-A complete full-stack application with React frontend and Express backend.
+This project contains a React frontend and a Node.js backend, set up to run as a single Vercel project.
 
-### Project Structure
-```
-react-main/
-├── frontend/          # React + Vite frontend
-├── backend/           # Express.js backend
-├── package.json       # Root workspace configuration
-└── README.md
-```
+## Project Structure
 
-### Quick Start
+- `src/` - React frontend source code
+- `api/` - Node.js backend API routes (for Vercel serverless functions)
+- `api/index.js` - Local development server
+- `public/` - Static assets
+- `package.json` - Dependencies and scripts
+- `vercel.json` - Vercel configuration
 
-#### Install All Dependencies (Recommended)
-```bash
-npm install
-```
+## Local Development
 
-#### Run Both Frontend and Backend
-```bash
-npm run dev
-```
+1. Install dependencies:
+   ```
+   npm install
+   ```
 
-### Individual Commands
+2. Start the backend server:
+   ```
+   npm start
+   ```
 
-#### Backend Only
-```bash
-cd backend
-npm install
-npm run dev      # Development with nodemon
-npm start        # Production
-```
+3. In another terminal, start the frontend:
+   ```
+   npm run dev
+   ```
 
-#### Frontend Only
-```bash
-cd frontend
-npm install
-npm run dev      # Development server
-npm run build    # Production build
-```
+The frontend will proxy API requests to the backend running on port 3001.
 
-### Environment Variables
-- Backend: Copy `.env.example` to `.env` and configure
-- Frontend: Copy `.env.example` to `.env` and configure API URL
+## Deployment to Vercel
 
-### Available Scripts
-- `npm run dev` - Run both frontend and backend in development
-- `npm run dev:frontend` - Run only frontend
-- `npm run dev:backend` - Run only backend  
-- `npm run build:frontend` - Build frontend for production
-- `npm install` - Install all dependencies for both projects
+1. Push this code to a Git repository.
+2. Connect the repository to Vercel.
+3. Vercel will use the `vercel.json` configuration to build the frontend and deploy API routes as serverless functions.
 
-### API Endpoints
-- `GET /api/hello` - Test endpoint
+## API Endpoints
 
-### Tech Stack
-- **Frontend**: React 19, Vite, ESLint
-- **Backend**: Express.js, CORS, dotenv
-- **Development**: Nodemon, Concurrently 
+- `GET /api/hello` - Returns a hello message from the backend
