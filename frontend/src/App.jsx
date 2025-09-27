@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import viteLogo from '/logo.svg'
 import './App.css'
 
 function App() {
   const [msg, setMsg] = useState("");
 
   useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    // In production, use relative URL; in development, use localhost
+    const apiUrl = import.meta.env.VITE_API_URL || (import.meta.env.MODE === 'production' ? '' : 'http://localhost:5000');
     fetch(`${apiUrl}/api/hello`)
       .then(res => res.json())
       .then(data => setMsg(data.message))

@@ -7,17 +7,20 @@
     "backend"
   ],
   "scripts": {
-    "install:all": "npm install",
+    "install:all": "npm install && npm install --workspace=frontend && npm install --workspace=backend",
     "dev:frontend": "npm run dev --workspace=frontend",
     "dev:backend": "npm run dev --workspace=backend",
     "build:frontend": "npm run build --workspace=frontend",
     "build": "npm run build:frontend",
+    "start": "concurrently \"npm run start --workspace=backend\" \"npm run dev --workspace=frontend\"",
     "start:backend": "npm start --workspace=backend",
+    "start:frontend": "npm run dev --workspace=frontend",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "postinstall": "npm install --workspace=frontend && npm install --workspace=backend"
+    "vercel-build": "npm run build:frontend"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.10"
   },
   "engines": {
     "node": ">=18.0.0"
