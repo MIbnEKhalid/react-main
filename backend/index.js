@@ -7,8 +7,9 @@ const app = express();
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-// Handle requests by serving index.html for all routes
-app.get('*', (req, res) => {
+// Handle requests by serving index.html for all non-API routes
+app.use((req, res, next) => {
+    if (req.path.startsWith('/api')) return next();
     res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
 });
 
