@@ -14,9 +14,9 @@ app.use((req, res, next) => {
 });
 
 // API endpoint
-app.use('/api/products', async (req, res) => {
-    const response = await axios.get('https://fakestoreapi.com/products');
-    res.send(response.data);
+
+app.use('/api/hello', async (req, res) => {
+    res.send({ message: 'Hello from the API!' });
 });
 
 // Start the server
